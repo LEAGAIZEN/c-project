@@ -1,0 +1,32 @@
+# c-project
+#include <stdio.h>
+#include <stdlib.h>
+
+struct person {
+    int rollno;
+    int Class;
+    char name[20];
+};
+
+int main() {
+    int n,i;
+    printf("enter the total numbe rof student");
+    scanf("%d",&n);
+    
+    struct person *hero[n];
+    // hero[n]= (struct person*)malloc(sizeof(struct person));
+for(i=0;i<n;i++){
+     hero[i]= (struct person*)malloc(sizeof(struct person));
+    printf("Enter class : ");
+    scanf("%d", &(hero[i]->Class));
+
+    printf("Enter name: ");
+    scanf("%s", hero[i]->name);
+
+    printf("Enter roll no: ");
+    scanf("%d", &(hero[i]->rollno));}
+    for ( i = 0; i < n; i++) {
+        free(hero[i]);
+    }
+    return 0;
+}
