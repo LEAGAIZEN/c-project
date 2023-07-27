@@ -30,3 +30,45 @@ for(i=0;i<n;i++){
     }
     return 0;
 }
+  #include<stdio.h>
+    #include<stdlib.h>
+    struct data{
+        int roll;
+        int sub1,sub2,sub3;
+        char name[20];
+    };
+    int main(){
+        int n;
+        printf("ENTER THE NUMBER OF STUDENT");
+        scanf("%d",&n);
+        struct data *p[n];
+        // p[i]=(struct data*)malloc(sizeof(struct data));
+        for(int i=0;i<n;i++){
+            p[i]=(struct data*)malloc(sizeof(struct data));
+            printf("ENTER THE NAMER OF STUDENT;");
+        scanf("%s",p[i]->name);
+        printf("ENTER THE ROLL NO;");
+        scanf("%d",&(p[i]->roll));
+              printf("ENTER THE MARKS FOR FIRST SUBJECT;");
+        scanf("%d",&(p[i]->sub1));
+          printf("ENTER THE MARKS FOR SECOND SUBJECT;");
+        scanf("%d",&(p[i]->sub2));
+          printf("ENTER THE MARKS FOR THIRD SUBJECT;");
+        scanf("%d",&(p[i]->sub3));
+        int avg=(p[i]->sub1+p[i]->sub2+p[i]->sub3)/3;
+        printf("%d\n",avg);
+        if(avg<50){
+            printf("you failed\n");
+        }else if(avg>50 &&avg<=60){
+            printf("you got second division\n");
+        }else if(avg>60 && avg<=70){
+            printf("you got first division\n");
+        }else{
+            printf("you got distinction\n");
+        }
+        
+        }
+        for(int i=0;i<n;i++){
+            free(p[i]);
+        }
+    }
