@@ -72,3 +72,65 @@ for(i=0;i<n;i++){
             free(p[i]);
         }
     }
+// Online C compiler to run C program online
+#include <stdio.h>
+#include<stdlib.h>
+
+int main() {
+   int i,j,**mat1,**mat2,r,c,r1,c1;
+   printf("enter the number of rows and columns for mat 1;");
+   scanf("%d %d",&r,&c);
+     printf("enter the number of rows and columns for mat 2;");
+   scanf("%d %d",&r1,&c1);
+   if(r!=r1||c!=c1){
+       printf("write equal rows and columns");
+   }
+   mat1=(int**)malloc(r*sizeof(int));
+   for(i=0;i<r;i++){
+       mat1[i]=(int*)malloc(c*sizeof(int));
+   }
+   mat2=(int**)malloc(r1*sizeof(int));
+   for(i=0;i<r1;i++){
+       mat2[i]=(int*)malloc(c1*sizeof(int));
+   }
+     printf("enter the elements for mat1\n");
+   for (i=0;i<r;i++){
+       for(j=0;j<c;j++){
+         
+           scanf("%d",&mat1[i][j]);
+       }
+   }
+    printf("enter the elements for mat2\n");
+    for (i=0;i<r1;i++){
+       for(j=0;j<c1;j++){
+          
+           scanf("%d",&mat2[i][j]);
+       }
+   }
+   int **mul = (int**)malloc(r * sizeof(int*));
+    for (i = 0; i < r; i++) {
+        mul[i] = (int*)calloc(c1, sizeof(int));
+    }
+
+    for (i=0;i<r;i++){
+       for(j=0;j<c1;j++){
+           for(int k=0;k<c;k++){
+        //   printf("enter the elements for mat2");
+        mul[i][j]+=mat1[i][k]*mat2[k][j];
+        //   scanf("%d",&mat[i][j]);
+        printf("\n");
+       }
+   }
+    }
+     printf("enter the elements for after multiplication\n");
+    for (i=0;i<r1;i++){
+       for(j=0;j<c1;j++){
+        //   printf("enter the elements for after multiplication");
+           printf("%d ", mul[i][j]);
+          
+       }
+        printf("\n");
+   }
+    
+    return 0;
+}
