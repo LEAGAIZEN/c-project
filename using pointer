@@ -134,3 +134,48 @@ int main() {
     
     return 0;
 }
+// linked sist especially singl;er linked lsit
+// Online C compiler to run C program online
+#include <stdio.h>
+#include<string.h>
+#include<stdlib.h>
+struct node{
+    int a;
+    char b[100];
+    struct node *het;
+};
+void countof(struct node*head){
+    int count=0;
+    if(head==NULL)
+    printf("linked list is empty\n");
+     struct node *ptr = head; 
+    ptr=head;
+    while(ptr!=NULL){
+        count++;
+        ptr=ptr->het;
+    }
+    printf("total count is %d\n",count);
+}
+
+
+int main() {
+   
+    struct node *head=NULL;
+    head=( struct node*)malloc(sizeof(struct node));
+    head->a=45;
+    // head->b="hero";
+    strcpy(head->b, "hero");
+    head->het=NULL;
+    printf("%d",head->a);
+     printf("%s\n",head->b);
+      struct node *current =NULL;
+    current=( struct current*)malloc(sizeof(struct node));
+    head->het=current;
+    current->a=12;
+      printf("%d\n",current->a);
+    // Write C code here
+    // printf("Hello world");
+     countof(head);
+
+    return 0;
+}
